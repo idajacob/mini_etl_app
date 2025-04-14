@@ -25,9 +25,9 @@ if uploaded_file:
     st.subheader("Original data")
     st.dataframe(df)
 
-    transformer_valg = st.radio("Vælg en tranformation", ["standard", "extra"])
+    transformer_valg = st.radio("Vælg en tranformation", ["Gør navne store", "Forbogstaver store"])
 
-    if transformer_valg == "standard":
+    if transformer_valg == "Gør navne store":
         transformer = Transformer()
     else:
         transformer = TransformExtra()
