@@ -4,7 +4,7 @@ import io
 import sys
 import os
 
-# Gør det muligt at importere fra src-mappen
+# Importerer fra src-mappen
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
 from src.extractor import Extractor
@@ -24,7 +24,9 @@ if uploaded_file:
     st.success("Fil uploadet og læst.")
     st.subheader("Original data")
     st.dataframe(df)
+    st.write(f"Antal rækker: {len(df)}")
 
+#Tranformering
     transformer_valg = st.radio("Vælg en tranformation", ["Gør navne store", "Forbogstaver store"])
 
     if transformer_valg == "Gør navne store":
@@ -36,6 +38,7 @@ if uploaded_file:
 
     st.subheader("Transformeret data")
     st.dataframe(df_transformed)
+    st.write(f"Antal rækker: {len(df_transformed)}")
 
     if st.button("Gem som output.csv"):
         loader = Loader()
