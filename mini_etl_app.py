@@ -41,3 +41,11 @@ if uploaded_file:
         loader = Loader()
         loader.load(df_transformed, "data/output.csv")
         st.success("Data gemt som data/output.csv")
+        
+        csv = df_transformed.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="Download som CSV",
+            data=csv,
+            file_name="output.csv",
+            mime="text/csv"
+        )
